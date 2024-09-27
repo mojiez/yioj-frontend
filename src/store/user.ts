@@ -6,6 +6,7 @@ export default {
   state: () => ({
     loginUser: {
       userName: "登录lala",
+      role: "user",
     },
   }),
   actions: {

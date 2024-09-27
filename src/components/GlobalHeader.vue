@@ -52,6 +52,20 @@ const doMenuClick = (key: string) => {
   });
 };
 
+// 设置权限管理
+router.beforeEach((to, from, next) => {
+  console.log(to);
+  if (to.meta.access === "canAdmin") {
+    if (store.state["user"]?.loginUser?.role !== "admin") {
+      next("/noauth");
+      return;
+    }
+    next();
+    return;
+  }
+  next();
+  return;
+});
 // 实现根据变化导航栏奇幻content内容， 同时能根据当前的路径反过来确定导航栏的key
 router.afterEach((to, from, failure) => {
   selectedKeys.value = [to.path];
