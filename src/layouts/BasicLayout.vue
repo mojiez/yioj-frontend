@@ -1,7 +1,9 @@
 <template>
   <div id="basicLayout">
     <a-layout style="height: 400px">
-      <a-layout-header class="header">导航栏</a-layout-header>
+      <a-layout-header class="header">
+        <GlobalHeader />
+      </a-layout-header>
       <a-layout-content class="content">
         <router-view />
       </a-layout-content>
@@ -12,7 +14,9 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import GlobalHeader from "@/components/GlobalHeader.vue";
+</script>
 <style scoped>
 #basicLayout {
 }
