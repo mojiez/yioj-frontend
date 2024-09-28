@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
+import AccessEnum from "@/access/accessEnum";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -20,7 +21,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/admin",
     name: "管理员可见",
     meta: {
-      access: "canAdmin",
+      access: AccessEnum.ADMIN,
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -31,6 +32,9 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/noauth",
     name: "无权限",
+    meta: {
+      hideInMenu: true,
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

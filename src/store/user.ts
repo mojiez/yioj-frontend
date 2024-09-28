@@ -1,12 +1,13 @@
 // initial state
 import { StoreOptions } from "vuex";
+import AccessEnum from "@/access/accessEnum";
 
 export default {
   namespaced: true,
   state: () => ({
     loginUser: {
       userName: "登录lala",
-      role: "user",
+      userRole: AccessEnum.USER,
     },
   }),
   actions: {
@@ -15,6 +16,11 @@ export default {
       // todo 改为发送请求给后端获取用户信息
       // 然后获取了用户信息以后更新state
       commit("updateUser", { userName: "鱼皮" });
+    },
+    getLoginUserTest({ commit, state }, payload) {
+      // todo 改为发送请求给后端获取用户信息
+      // 然后获取了用户信息以后更新state
+      commit("updateUser", payload);
     },
   },
   mutations: {
