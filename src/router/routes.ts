@@ -1,8 +1,28 @@
 import { RouteRecordRaw } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import AccessEnum from "@/access/accessEnum";
+import UserLayout from "@/layouts/UserLayout.vue";
+import UserLoginView from "@/views/user/UserLoginView.vue";
+import UserRegisterView from "@/views/user/UserRegisterView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/user",
+    name: "用户",
+    component: UserLayout,
+    children: [
+      {
+        path: "login",
+        name: "用户登陆页",
+        component: UserLoginView,
+      },
+      {
+        path: "register",
+        name: "用户注册页",
+        component: UserRegisterView,
+      },
+    ],
+  },
   {
     path: "/",
     name: "浏览题目",

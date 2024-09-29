@@ -23,7 +23,7 @@
             </div>
           </a-menu-item>
 
-          <a-menu-item v-for="item in visibleRoutes" :key="item.path">{{
+          <a-menu-item v-for="item in routes" :key="item.path">{{
             item.name
           }}</a-menu-item>
         </a-menu>
@@ -49,31 +49,36 @@ const router = useRouter();
 const store = useStore();
 const selectedKeys = ref(["/"]);
 const loginUser = store.state["user"]?.loginUser;
-setTimeout(() => {
-  store.dispatch("user/getLoginUserTest", {
-    userName: "zhang",
-    userRole: AccessEnum.ADMIN,
-  });
-}, 3000);
+// setTimeout(() => {
+//   store.dispatch("user/getLoginUserTest", {
+//     userName: "zhang",
+//     userRole: AccessEnum.ADMIN,
+//   });
+// }, 3000);
+// setTimeout(() => {
+//   store.dispatch("user/getLoginUser", {});
+// }, 3000);
 const doMenuClick = (key: string) => {
   router.push({
     path: key,
   });
 };
-
+/**
+ * 另一种权限校验 + 设施隐藏界面的策略
+ */
 // 使用computed可以重新触发渲染
-const visibleRoutes = computed(() => {
-  return routes.filter((item, index) => {
-    // 根据隐藏过滤菜单
-    if (item.meta?.hideInMenu) {
-      return false;
-    }
-    // 根据权限过滤菜单
-    if (checkAccess(store.state["user"]?.loginUser, item.meta?.access))
-      return true;
-    return false;
-  });
-});
+// const visibleRoutes = computed(() => {
+//   return routes.filter((item, index) => {
+//     // 根据隐藏过滤菜单
+//     if (item.meta?.hideInMenu) {
+//       return false;
+//     }
+//     // 根据权限过滤菜单
+//     if (checkAccess(store.state["user"]?.loginUser, item.meta?.access))
+//       return true;
+//     return false;
+//   });
+// });
 // // 设置权限管理 old
 // router.beforeEach((to, from, next) => {
 //   console.log(to);
