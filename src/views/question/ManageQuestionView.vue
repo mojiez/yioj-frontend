@@ -36,7 +36,7 @@ const tableRef = ref();
 const dataList = ref([]);
 const total = ref(0);
 const searchParams = ref({
-  pageSize: 10,
+  pageSize: 3,
   current: 1,
 });
 // 创建一个数组来存储获取到的用户信息

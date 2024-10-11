@@ -50,13 +50,37 @@ export const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/update_question",
-    name: "添加题目",
+    name: "更新题目",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../views/question/AddQuestionView.vue"
+      ),
+  },
+  {
+    path: "/questions",
+    name: "题目浏览",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/question/QuestionView.vue"
+      ),
+  },
+  {
+    path: "/view/question/:id",
+    // /view/question/${question.id}
+    name: "题目详情",
+    props: true,
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/question/ViewQuestionView.vue"
       ),
   },
   {
