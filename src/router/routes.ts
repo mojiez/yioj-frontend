@@ -38,6 +38,39 @@ export const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
+    path: "/add_question",
+    name: "添加题目",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/question/AddQuestionView.vue"
+      ),
+  },
+  {
+    path: "/update_question",
+    name: "添加题目",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/question/AddQuestionView.vue"
+      ),
+  },
+  {
+    path: "/manage_question",
+    name: "管理题目",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/question/ManageQuestionView.vue"
+      ),
+  },
+  {
     path: "/admin",
     name: "管理员可见",
     meta: {
